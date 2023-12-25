@@ -1,0 +1,14 @@
+{
+    "settings": {
+        "svn.ignoreMissingSvnWarning": true,
+        "liveServer.settings.multiRootWorkspaceName": "WD-1 Assignment"
+    },
+    "folders": [
+        {
+            "path": "."
+        },
+        {
+            "path": "../WD-1 Assignment"
+        }
+    ]
+}
