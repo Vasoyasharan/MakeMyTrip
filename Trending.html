@@ -1,282 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MakeYourTrip</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome css file -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trending places</title>
-   <!-- Font Awesome css file -->
-   <link rel="stylesheet" href="css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/trending.css" />
-  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="images/logo4.jpeg" id="logo" />
+    <!-- Custom css file -->
+    <link rel="stylesheet" href="css/index.css" />
 
-  <style>
-    .navbar {
-      background-image: linear-gradient(to bottom, #ff9100, transparent);
-    }
+    <link rel="shortcut icon" type="image/x-icon" href="images/logo4.jpeg" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    .btn:hover {
-      background-color: #005eff;
-    }
+    <style>
+      /* Header Section */
+      header .container {
+        text-align: center;
+        padding: 20px 0;
+      }
 
-    .text-center {
-      /* background-color: coral; */
-      color: black;
-    }
+      /* Main Content Section */
+      .container2 {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
 
-  
-  </style>
+      .popular-places {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
 
-</head>
+      .place-card {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+        max-width: 300px;
+      }
 
-<body>
-  <!-- Navbar using Bootstrap 4 -->
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">MakeYourTrip</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      .place-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
 
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="online.html">Packages</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="explore.html">Explore Places</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="T login.html">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="T signup.html">SignUp</a>
-        </li>
-      </ul>
+      .place-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .place-card:hover .place-image {
+        transform: scale(1.1);
+      }
+
+      .place-info {
+        padding: 20px;
+        text-align: center;
+      }
+
+      .place-info h2 {
+        font-size: 1.5rem;
+        color: #1c92d2;
+        margin-bottom: 10px;
+      }
+
+      .place-info p {
+        font-size: 1rem;
+        color: #7f8c8d;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar using Bootstrap 5 -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">MakeYourTrip</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="online.html">Packages</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="explore.html">Explore Places</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="T login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="T signup.html">SignUp</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Section Stat's -->
+
+    <!-- Jumbotrone section -->
+
+    <div class="cta">
+      <h3>
+        Take off! <br />
+        to the UK and beyond
+      </h3>
+      <p class="jumbonote">Book your 2024 travel today</p>
+      <a href="https://en.wikipedia.org/wiki/Travel" class="cta-btn"
+        >Book Now</a
+      >
     </div>
-  </nav>
+    <!--  jumbotrone ended -->
 
-  <!-- ---------- nav bar end's --------- -->
-
-
-  <!-- Jumbotrone section -->
-
-  <div class="cta">
-    <h3>
-      Take off! <br> to the UK and beyond
-    </h3>
-    <p class="jumbonote">
-      Book your 2024 travel today
-    </p>
-    <a href="https://en.wikipedia.org/wiki/Travel" class="cta-btn">Book Now</a>
-  </div>
-  <!--  jumbotrone ended -->
-
-
-  <header>
-    <div class="container">
-      <h1>Trending Places</h1>
-    </div>
-  </header>
-
-
-  <!-- ---------- Body Start's ---------- -->
-
-  <div class="container2">
-    <section class="popular-places">
-      <div class="place-card">
-        <img src="images/image1.jpg" alt="Place 1" class="place-image">
-        <div class="place-info">
-          <h2>London</h2>
-          <p> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem iure laboriosam velit
-            error impedit sapiente facilis alias distinctio quia iste! </p>
-        </div>
+    <header>
+      <div class="container">
+        <h1>Trending Places</h1>
       </div>
-      <div class="place-card">
-        <img src="images/image5.jpg" alt="Place 2" class="place-image">
-        <div class="place-info">
-          <h2>Aoterra</h2>
-          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam repellendus debitis, tenetur sunt
-            saepe placeat modi repudiandae dolores. Eligendi, facere! </p>
-        </div>
-      </div>
-      <div class="place-card">
-        <img src="images/image10.jpg" alt="Place 3" class="place-image">
-        <div class="place-info">
-          <h2>Dubai</h2>
-          <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod vero corrupti quae molestiae
-            veniam ratione rerum suscipit reprehenderit voluptatum debitis! </p>
-        </div>
-      </div>
-      <div class="place-card">
-        <img src="images/image6.jpg" alt="Place 4" class="place-image">
-        <div class="place-info">
-          <h2>paris</h2>
-          <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique aut saepe nihil sequi
-            doloribus exercitationem, sit commodi dolore suscipit corrupti. </p>
-        </div>
-      </div>
-      <div class="place-card">
-        <img src="images/image8.jpg" alt="Place 5" class="place-image">
-        <div class="place-info">
-          <h2>San Fransisco</h2>
-          <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse perferendis ipsa totam vel ab
-            illum illo quaerat dignissimos, minima quia. </p>
-        </div>
-      </div>
-      <div class="place-card">
-        <img src="images/image9.jpg" alt="Place 6" class="place-image">
-        <div class="place-info">
-          <h2>Rio De Janerio</h2>
-          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos minus ipsum libero placeat at
-            dicta distinctio! Sed magnam nostrum rerum. </p>
-        </div>
-      </div>
+    </header>
 
-    </section>
-  </div>
-  <!-- ---------- Body End's ---------- -->
-
-  <!-- footer section -->
-
-
- 
-
-  <!-- Footer section -->
-  <section class="info_section ">
-    <div class="container">
-
-      <div class="info_bottom layout_padding2">
-        <div class="row info_main_row">
-          <div class="col-md-6 col-lg-3">
-            <h5 class="footer_heading">
-              Address
-            </h5>
-            <div class="info_contact">
-              <a href="">
-
-                <span>
-                  California
-                </span>
-              </a>
-              <a href="">
-
-                <span>
-                  Call +1 1122334455
-                </span>
-              </a>
-              <a href="">
-
-                <span>
-                  Niralisohagiya@gmail.com
-                </span>
-              </a>
-            </div>
-
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_links">
-              <h5>
-                Useful link
-              </h5>
-              <div class="info_links_menu">
-                <a href="index.html">
-                  Home
-                </a>
-                <a href="Trending.html">
-                  Trending Places
-                </a>
-                <a href="online.html">
-                  Online Packages
-                </a>
-
-                <a href="explore.html">
-                  Explore More
-                </a>
-                <a href="T login.html">
-                  Login
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_post">
-              <h5>
-                Best Places
-              </h5>
-              <div class="post_box">
-                <div class="img-box">
-                  <img src="images/dubai.jpg" alt="">
-                </div>
-                <p class="namess">
-                  Dubai
-                </p>
-              </div>
-              <div class="post_box">
-                <div class="img-box">
-                  <img src="images/canada.jpg" alt="">
-                </div>
-                <p class="namess">
-                  Hong-Kong
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="info_post">
-              <h5>
-                Historic
-              </h5>
-              <div class="post_box">
-                <div class="img-box">
-                  <img src="images/image3.jpg" alt="">
-                </div>
-                <p class="namess">
-                  Statue Of Liberty
-                </p>
-              </div>
-              <div class="post_box">
-                <div class="img-box">
-                  <img src="images/paris.jpg" alt="">
-                </div>
-                <p class="namess">
-                  Effil Tower
-                </p>
-              </div>
-            </div>
+    <div class="container2">
+      <section class="popular-places">
+        <div class="place-card">
+          <img src="images/image1.jpg" alt="Place 1" class="place-image" />
+          <div class="place-info">
+            <h2>London</h2>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Exercitationem iure laboriosam velit error impedit sapiente
+              facilis alias distinctio quia iste!
+            </p>
           </div>
         </div>
+        <div class="place-card">
+          <img src="images/image5.jpg" alt="Place 2" class="place-image" />
+          <div class="place-info">
+            <h2>Aoterra</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              repellendus debitis, tenetur sunt saepe placeat modi repudiandae
+              dolores. Eligendi, facere!
+            </p>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="images/image10.jpg" alt="Place 3" class="place-image" />
+          <div class="place-info">
+            <h2>Dubai</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod
+              vero corrupti quae molestiae veniam ratione rerum suscipit
+              reprehenderit voluptatum debitis!
+            </p>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="images/image6.jpg" alt="Place 4" class="place-image" />
+          <div class="place-info">
+            <h2>paris</h2>
+            <p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Similique aut saepe nihil sequi doloribus exercitationem, sit
+              commodi dolore suscipit corrupti.
+            </p>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="images/image8.jpg" alt="Place 5" class="place-image" />
+          <div class="place-info">
+            <h2>San Fransisco</h2>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
+              perferendis ipsa totam vel ab illum illo quaerat dignissimos,
+              minima quia.
+            </p>
+          </div>
+        </div>
+        <div class="place-card">
+          <img src="images/image9.jpg" alt="Place 6" class="place-image" />
+          <div class="place-info">
+            <h2>Rio De Janerio</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+              minus ipsum libero placeat at dicta distinctio! Sed magnam nostrum
+              rerum.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Main section end's -->
+
+    <!-- Footer Section -->
+    <footer class="footer_section bg-dark text-white py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h5 class="footer_heading">Address</h5>
+            <ul class="list-unstyled">
+              <li>California</li>
+              <li>Call +1 1122334455</li>
+              <li>
+                <a href="mailto:Niralisohagiya@gmail.com" class="text-white"
+                  >Vasoyasharan@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="footer_heading">Useful Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-white">Home</a></li>
+              <li>
+                <a href="Trending.html" class="text-white">Trending Places</a>
+              </li>
+              <li>
+                <a href="online.html" class="text-white">Online Packages</a>
+              </li>
+              <li>
+                <a href="explore.html" class="text-white">Explore More</a>
+              </li>
+              <li><a href="T login.html" class="text-white">Login</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="footer_heading">Best Places</h5>
+            <ul class="list-unstyled">
+              <li>
+                <img src="images/dubai.jpg" alt="Dubai" class="img-fluid" />
+                Dubai
+              </li>
+              <li>
+                <img
+                  src="images/canada.jpg"
+                  alt="Hong-Kong"
+                  class="img-fluid"
+                />
+                Hong-Kong
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <h5 class="footer_heading">Historic</h5>
+            <ul class="list-unstyled">
+              <li>
+                <img
+                  src="images/image3.jpg"
+                  alt="Statue Of Liberty"
+                  class="img-fluid"
+                />
+                Statue Of Liberty
+              </li>
+              <li>
+                <img
+                  src="images/paris.jpg"
+                  alt="Eiffel Tower"
+                  class="img-fluid"
+                />
+                Eiffel Tower
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col text-center">
+            <p>
+              &copy; <span id="displayYear"></span> All Rights Reserved By
+              Sharan Vasoya
+            </p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/people/Vasoya-Sharan/pfbid02pEuSYXAaQ8HWHZsknhYuVHQ7o7q46yskTdxxrYHW1HV9HrWJcF1c6864nuqyTAVcl/"
+                class="text-white me-2"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://github.com/Vasoyasharan" class="text-white me-2"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://instagram.com/sharan_vasoya_07?igshid=ZDdkNTZiNTM="
+                class="text-white me-2"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/sharan-vasoya-b6a21824a?original_referer=https%3A%2F%2Fsharan.is-a.dev%2F"
+                class="text-white me-2"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-
-
-
-  <!-- copyRight section -->
-
-  <footer class="footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By Nirali
-        Sohagiya
-      </p>
-    </div>
-  </footer>
-
-  <!-- footer section ended -->
-
-
-  <!-- Bootstrap 4  And JavaScript  -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-</body>
-
+    <script>
+      document.getElementById("displayYear").innerHTML =
+        new Date().getFullYear();
+    </script>
+  </body>
 </html>
